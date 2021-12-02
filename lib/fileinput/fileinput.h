@@ -18,7 +18,7 @@ std::vector<std::string> readFileStrings(std::string fileName) {
         }
         myfile.close();
     } else
-        cout << "Unable to open file";
+        cout << "Unable to open file: " << fileName << endl;
 
     return data;
 }
@@ -49,7 +49,7 @@ std::string findFileLocation(int argc, char *argv[], std::string fileName) {
     std::string filePaths = std::string(argv[0]);
     std::size_t found = filePaths.find_last_of("/");
     std::string fullFileName =
-        filePaths + ".runfiles/__main__/" + filePaths.substr(found + 1) + "/" + fileName;
+        filePaths + ".runfiles/__main__/days/" + filePaths.substr(found + 1) + "/" + fileName;
 
     return fullFileName;
 }

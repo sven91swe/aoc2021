@@ -16,8 +16,7 @@ struct line {
 std::vector<line> vectorOfLinesFromStrings(std::vector<std::string> input) {
     std::vector<line> out;
 
-    std::string expression = "(\\d+),(\\d+)\\s*->\\s*(\\d+),(\\d+)\\s*";
-    std::regex e(expression);
+    std::regex e(R"((\d+),(\d+)\s*->\s*(\d+),(\d+)\s*)");
     std::smatch string_matches;
 
     for (std::string sLine : input) {

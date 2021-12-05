@@ -43,6 +43,9 @@ int main(int argc, char *argv[]) {
                 case Direction::up:
                     depth -= value;
                     break;
+                case Direction::invalid:
+                default:
+                    break;
             }
         }
 
@@ -74,6 +77,9 @@ int main(int argc, char *argv[]) {
                     break;
                 case Direction::up:
                     aim -= value;
+                    break;
+                case Direction::invalid:
+                default:
                     break;
             }
         }

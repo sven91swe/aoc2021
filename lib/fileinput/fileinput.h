@@ -30,7 +30,7 @@ std::vector<int> readFileIntegers(std::string fileName) {
         data.emplace_back(stoi(line));
     }
 
-  return data;
+    return data;
 }
 
 std::vector<long long int> readFileLargeIntegers(std::string fileName) {

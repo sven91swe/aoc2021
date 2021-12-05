@@ -22,7 +22,7 @@ int main(int argc, char *argv[]) {
 
     std::cout << "Part 2:" << std::endl;
     numberOfIncreases = 0;
-    for (int i = 3; i < data.size(); i++) {
+    for (size_t i = 3; i < data.size(); i++) {
         int lastSum = std::accumulate(data.begin() + i - 3, data.begin() + i, 0);
         int currentSum = std::accumulate(data.begin() + i - 2, data.begin() + i + 1, 0);
 

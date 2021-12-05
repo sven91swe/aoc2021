@@ -3,22 +3,21 @@
 
 #include <string>
 #include <vector>
+#include <regex>
 
 using namespace std;
 
 std::vector<std::string> parseToString(std::string row, std::string delimitor) {
     std::vector<std::string> data;
 
-    while(true){
-        std::size_t firstDelimitorPosition = row.find_first_of(delimitor);
-        if(firstDelimitorPosition != std::string::npos){
-            data.emplace_back(row.substr(0, firstDelimitorPosition));
-            row = row.substr(firstDelimitorPosition + 1);
-        }else{
-            data.emplace_back(row);
-            break;
-        }
+    std::string expression = "\\s*([^\\s"+delimitor+"]+)";
+    std::regex e (expression);
+    std::smatch string_matches;
+    while(std::regex_search(row, string_matches, e)){
+        data.emplace_back(string_matches[1]);
+        row = string_matches.suffix().str();
     }
+
     return data;
 }
 
